@@ -79,15 +79,5 @@
         "gender": "male",
         "age": 20,
         "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_design/ducarre_alexandre.jpg"
-    },
-    {
-        "id": 8,
-        "lastName": "TATI",
-        "firstName": "toto",
-        "email": "toto.tata@my-digital-school.org",
-        "birthDate": "2000-11-06",
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_design/ducarre_alexandre.jpg",
-        "gender": "male",
-        "age": 20
     }
 ]
