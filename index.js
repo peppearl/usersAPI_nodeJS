@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const fs = require('fs');
-const port = 12345;
+const port = 12346;
 const bodyparser = require('body-parser');
 const joi = require('joi');
 var cors = require('cors');
@@ -41,6 +41,7 @@ app.post('/users', ({body}, res) => {
 
     // Récupère la liste des users
     const users = readUsers();
+    /*
     const schema = joi.object({
         lastName: joi.string().required(),
         firstName: joi.string().required(),
@@ -50,6 +51,7 @@ app.post('/users', ({body}, res) => {
         gender: body.gender,
         age: getAge(body.birthDate)
     });
+     */
     const newUser = {
         id: Math.max(...users.map((user) => user.id)) + 1,
         lastName: body.lastName.toUpperCase(),
@@ -61,7 +63,7 @@ app.post('/users', ({body}, res) => {
         age: getAge(body.birthDate)
     };
 
-    readUsers.push(newUser);
+    users.push(newUser);
 
     fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
     console.log(JSON.stringify(users));

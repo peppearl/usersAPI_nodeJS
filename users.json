@@ -1,83 +1,83 @@
 [
-    {
-        "id": 0,
-        "firstName": "Chloé",
-        "lastName": "GALLEGO",
-        "email": "chloe.gallego-pelegrin@my-digital-school.org",
-        "birthDate": "2000-01-15",
-        "gender": "female",
-        "age": 21,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/gallego-pelegrin_chloe.jpg"
-    },
-    {
-        "id": 1,
-        "firstName": "Emilie",
-        "lastName": "ARQUILLIERE",
-        "email": "emilie.arquilliere@my-digital-school.org",
-        "birthDate": "1999-03-05",
-        "gender": "female",
-        "age": 22,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/arquilliere_emilie.jpg"
-    },
-    {
-        "id": 2,
-        "firstName": "Florian",
-        "lastName": "BIQUE",
-        "email": "florian.bique@my-digital-school.org",
-        "birthDate": "1998-03-14",
-        "gender": "male",
-        "age": 21,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/bique_florian.jpg"
-    },
-    {
-        "id": 3,
-        "firstName": "Jordan",
-        "lastName": "BRETTON",
-        "email": "jordan.bretton@my-digital-school.org",
-        "birthDate": "1993-11-03",
-        "gender": "male",
-        "age": 26,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/bretton_jordan.jpg"
-    },
-    {
-        "id": 4,
-        "firstName": "Yoann",
-        "lastName": "CÔTE",
-        "email": "yoann.cote@my-digital-school.org",
-        "birthDate": "1999-01-01",
-        "gender": "male",
-        "age": 22,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/cote_yoann.jpg"
-    },
-    {
-        "id": 5,
-        "firstName": "Gabrielle",
-        "lastName": "GEROUDET",
-        "email": "gabrielle.geroudet-rastoix@my-digital-school.org",
-        "birthDate": "2000-03-11",
-        "avatarUrl": "",
-        "gender": "female",
-        "age": 20,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/geroudet-rastoix_gabrielle.jpg"
-    },
-    {
-        "id": 6,
-        "firstName": "Antoine",
-        "lastName": "MARTIN",
-        "email": "antoine.martin@my-digital-school.org",
-        "birthDate": "1993-01-01",
-        "gender": "male",
-        "age": 26,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/martin_antoine.jpg"
-    },
-    {
-        "id": 7,
-        "firstName": "Alexandre",
-        "lastName": "DUCARRE",
-        "email": "alexandre.ducarre@my-digital-school.org",
-        "birthDate": "2000-11-06",
-        "gender": "male",
-        "age": 20,
-        "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_design/ducarre_alexandre.jpg"
-    }
+  {
+    "id": 1,
+    "firstName": "Emilie",
+    "lastName": "ARQUILLIERE",
+    "email": "emilie.arquilliere@my-digital-school.org",
+    "birthDate": "1999-03-05",
+    "gender": "female",
+    "age": 22,
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/arquilliere_emilie.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "Florian",
+    "lastName": "BIQUE",
+    "email": "florian.bique@my-digital-school.org",
+    "birthDate": "1998-03-14",
+    "gender": "male",
+    "age": 21,
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/bique_florian.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "Jordan",
+    "lastName": "BRETTON",
+    "email": "jordan.bretton@my-digital-school.org",
+    "birthDate": "1993-11-03",
+    "gender": "male",
+    "age": 26,
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/bretton_jordan.jpg"
+  },
+  {
+    "id": 4,
+    "firstName": "Yoann",
+    "lastName": "CÔTE",
+    "email": "yoann.cote@my-digital-school.org",
+    "birthDate": "1999-01-01",
+    "gender": "male",
+    "age": 22,
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/cote_yoann.jpg"
+  },
+  {
+    "id": 5,
+    "firstName": "Gabrielle",
+    "lastName": "GEROUDET",
+    "email": "gabrielle.geroudet-rastoix@my-digital-school.org",
+    "birthDate": "2000-03-11",
+    "avatarUrl": "",
+    "gender": "female",
+    "age": 20,
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/geroudet-rastoix_gabrielle.jpg"
+  },
+  {
+    "id": 7,
+    "firstName": "Alexandre",
+    "lastName": "DUCARRE",
+    "email": "alexandre.ducarre@my-digital-school.org",
+    "birthDate": "2000-11-06",
+    "gender": "male",
+    "age": 20,
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_design/ducarre_alexandre.jpg"
+  },
+  {
+    "id": 6,
+    "lastName": "MARTIN",
+    "firstName": "Antoine",
+    "email": "antoine.martin@my-digital-school.org",
+    "birthDate": "1993-01-01",
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/martin_antoine.jpg",
+    "gender": "male",
+    "age": 28
+  },
+  {
+    "id": 0,
+    "lastName": "GALLEGO",
+    "firstName": "Chloé",
+    "email": "chloe.gallego-pellegrin@my-digital-school.org",
+    "birthDate": "2000-01-15",
+    "pic": "https://trombi-mds.mathieutu.dev/pictures/b3_dev/gallego-pelegrin_chloe.jpg",
+    "gender": "female",
+    "age": 21
+  }
 ]
