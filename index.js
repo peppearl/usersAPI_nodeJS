@@ -2,19 +2,17 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 const port = 12346;
-const bodyparser = require('body-parser');
-const joi = require('joi');
-var cors = require('cors');
+let cors = require('cors');
+const fileUpload = require('express-fileupload');
 
+app.use(express.static('images'))
 app.use(express.json());
 app.use(cors())
+app.use(fileUpload({
+    createParentPath: true
+}))
 
 const readUsers = () => JSON.parse(fs.readFileSync("./users.json").toString());
-/*
-const getAge = birthDates => new Date(
-    (Date.now() - Date.parse(birthDates))
-).getFullYear() - 1970
-*/
 
 //get age thanks to date birth
 getAge = (dateString) => {
@@ -35,39 +33,54 @@ app.get('/users', (req, res) => {
     res.json(readUsers());
 });
 
+//Show only one user
+app.get("/users/:id", (req, res) => {
+    const body = req.body;
+
+    // Get the user from the list by ID
+    const users = readUsers();
+    const user = users.find((user) => user.id === Number(req.params.id));
+
+    //Show the user
+    res.json(user);
+});
+
 // POST ----------
 
-app.post('/users', ({body}, res) => {
+//Create new user
+app.post('/users', (req, res) => {
 
     // Récupère la liste des users
     const users = readUsers();
-    /*
-    const schema = joi.object({
-        lastName: joi.string().required(),
-        firstName: joi.string().required(),
-        email: joi.string().email().required(),
-        birthDate: joi.date().required(),
-        pic: joi.string().uri().required(),
-        gender: body.gender,
-        age: getAge(body.birthDate)
-    });
-     */
-    const newUser = {
-        id: Math.max(...users.map((user) => user.id)) + 1,
-        lastName: body.lastName.toUpperCase(),
-        firstName: body.firstName,
-        email: body.email,
-        birthDate: body.birthDate,
-        pic: body.pic,
-        gender: body.gender,
-        age: getAge(body.birthDate)
-    };
+    const body = req.body
 
-    users.push(newUser);
+    if (!req.files) {
+        return res.status(400).send('Photo manquante !');
+    } else {
+        let pic = req.files.pic;
+        pic.mv('./images/' + pic.name);
+        res.json(pic)
 
-    fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
-    console.log(JSON.stringify(users));
-    res.json(users);
+        const newUser = {
+            id: Math.max(...users.map((user) => user.id)) + 1,
+            lastName: body.lastName.toUpperCase(),
+            firstName: body.firstName,
+            email: body.email,
+            birthDate: body.birthDate,
+            pic: `http://localhost:${port}/` + pic.name,
+            gender: body.gender,
+            age: getAge(body.birthDate)
+        };
+        if (users.some((user) => user.email === newUser.email)) {
+            return res.status(405).send('Email déjà pris !');
+        } else {
+            users.push(newUser);
+
+            fs.writeFileSync('./users.json', JSON.stringify(users, null, 2));
+            console.log(JSON.stringify(users));
+            res.json(users);
+        }
+    }
 });
 
 // PUT --------
@@ -91,24 +104,37 @@ app.put('/users/:id', (req, res) => {
         age: getAge(body.birthDate)
     };
 
-    //Add new user in users' list
-    const newUsers = [...users.filter((user) => user.id !== id), newUser];
+    if (users.filter((user) => user.id !== newUser.id).some((user) => user.email === newUser.email)) {
+        return res.status(405).send('Email déjà pris !');
+    } else {
+        //Add new user in users' list
+        const newUsers = [...users.filter((user) => user.id !== id), newUser];
 
-    //Write in JSON file to insert the new user to the users' list
-    fs.writeFileSync("./users.json", JSON.stringify(newUsers, null, 4));
-    res.json(newUser);
+        //Write in JSON file to insert the new user to the users' list
+        fs.writeFileSync("./users.json", JSON.stringify(newUsers, null, 4));
+        res.json(newUser);
+    }
 });
 
-//Show only one user
-app.get("/users/:id", (req, res) => {
-    const body = req.body;
+// DELETE ---------
 
-    // Get the user from the list by ID
+app.delete('/users/:id', (req, res) => {
+
+    // Reading id from the URL
     const users = readUsers();
-    const user = users.find((user) => user.id === Number(req.params.id));
+    const id = Number(req.params.id);
 
-    //Show the user
-    res.json(user);
+    // Remove user from the users' list
+    let usersList = users.filter(i => {
+        return i.id !== id;
+    });
+
+    //Delete user in json file
+    fs.writeFileSync("./users.json", JSON.stringify(usersList, null, 4));
+    res.json(usersList);
+
+    res.send('User is deleted');
+
 });
 
 //Used port
