@@ -4,13 +4,21 @@ const fs = require('fs');
 const port = 12346;
 let cors = require('cors');
 const fileUpload = require('express-fileupload');
+const path = __dirname + '/views';
+let history = require('connect-history-api-fallback');
 
 app.use(express.static('images'))
+app.use(express.static(path));
 app.use(express.json());
 app.use(cors())
 app.use(fileUpload({
     createParentPath: true
-}))
+}));
+app.use(history({
+    rewrites: [
+        { from: /\/users/, to: '/users'}
+    ]
+}));
 
 const readUsers = () => JSON.parse(fs.readFileSync("./users.json").toString());
 
@@ -30,6 +38,7 @@ getAge = (dateString) => {
 
 //Show users' list
 app.get('/users', (req, res) => {
+    res.sendFile(path + "index.html");
     res.json(readUsers());
 });
 
