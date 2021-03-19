@@ -14,6 +14,7 @@ app.use(cors())
 app.use(fileUpload({
     createParentPath: true
 }));
+//To correct error 404 at refresh
 app.use(history({
     rewrites: [
         { from: /\/users/, to: '/users'}
